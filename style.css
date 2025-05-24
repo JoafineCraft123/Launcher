@@ -1,6 +1,6 @@
 .announcement-wrapper {
   width: 100%;
-  overflow: hidder;
+  overflow: hidden; /* Correção aqui */
   position: relative;
   height: 50px; /* altura visível da faixa */
   margin-bottom: 20px;
