@@ -2,12 +2,12 @@
   width: 100%;
   overflow: hidden;
   position: relative;
-  height: 30px; /* controla a altura visível da animação */
+  height: 30px; /* altura visível da faixa */
   margin-bottom: 20px;
 }
 
 .announcement {
-  display: inline-block;
+  position: absolute;
   white-space: nowrap;
   color: gold;
   font-size: 24px;
@@ -17,9 +17,9 @@
 
 @keyframes scroll-right {
   0% {
-    transform: translateX(-100%);
+    left: -100%;
   }
   100% {
-    transform: translateX(100%);
+    left: 100%;
   }
 }
