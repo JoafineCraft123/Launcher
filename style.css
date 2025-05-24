@@ -2,7 +2,7 @@
   width: 100%;
   overflow: hidder;
   position: relative;
-  height: 20px; /* altura visível da faixa */
+  height: 50px; /* altura visível da faixa */
   margin-bottom: 20px;
 }
 
@@ -10,7 +10,7 @@
   position: absolute;
   white-space: nowrap;
   color: gold;
-  font-size: 24px;
+  font-size: 50px;
   font-weight: bold;
   animation: scroll-right 10s linear infinite;
 }
