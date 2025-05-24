@@ -1,13 +1,18 @@
+.announcement-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 30px; /* controla a altura visível da animação */
+  margin-bottom: 20px;
+}
+
 .announcement {
+  display: inline-block;
+  white-space: nowrap;
   color: gold;
   font-size: 24px;
   font-weight: bold;
-  margin-bottom: 20px;
-  animation: scroll-right 15s linear infinite;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-  display: inline-block;
+  animation: scroll-right 10s linear infinite;
 }
 
 @keyframes scroll-right {
