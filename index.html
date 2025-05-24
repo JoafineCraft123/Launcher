@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DKLauncher</title>
   <style>
     body {
@@ -38,6 +39,25 @@
       width: 100%;
     }
 
+    .announcement {
+      color: gold;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      animation: scroll-left 15s linear infinite;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
     .download-button {
       display: inline-block;
       padding: 18px 35px;
@@ -68,14 +88,17 @@
 
   <div class="container">
     <div class="features">
-      <marquee style="color: gold; font-size: 24px; font-weight: bold;">🎉 FELIZ ANIVERSÁRIO AO DKLAUNCHER 🎉</marquee>
+      <div class="announcement">🎉 HAPPY BIRTHDAY TO DKLAUNCHER 🎉</div>
       <p>Get ready for a new experience with DKLauncher!</p>
       <p>✅ Fully Updated Versions</p>
       <p>🎮 Completely Playable Without Lag</p>
       <p>🖥️ Compatible with Windows 10/11</p>
     </div>
 
-    <a class="download-button" href="https://download2273.mediafire.com/q8gsqugmz0qgtA0WY35i5jB9gxFFlk8t0tgk7tfhe0wPP2zGvmIEDCown-7mfqCTT3BcjgOZfOjn2_a5Z0Kt40xRhSz3wm4g5Q-FQsR0HQYg-Q_rBYJtM1AIT-y7bdiE4QmAJ20sQY6ZbZnTGynPy8bUbRMIxQJP3a9c2koHKkI/1y9h9b43mtjqv6g/DKLauncher.exe" target="_blank">
+    <a class="download-button" 
+       href="https://download2273.mediafire.com/q8gsqugmz0qgtA0WY35i5jB9gxFFlk8t0tgk7tfhe0wPP2zGvmIEDCown-7mfqCTT3BcjgOZfOjn2_a5Z0Kt40xRhSz3wm4g5Q-FQsR0HQYg-Q_rBYJtM1AIT-y7bdiE4QmAJ20sQY6ZbZnTGynPy8bUbRMIxQJP3a9c2koHKkI/1y9h9b43mtjqv6g/DKLauncher.exe" 
+       target="_blank" 
+       rel="noopener noreferrer">
       ⬇️ Download DKLauncher
     </a>
   </div>
