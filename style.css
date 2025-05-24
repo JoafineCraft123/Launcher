@@ -1,25 +1,27 @@
 .announcement-wrapper {
   width: 100%;
-  overflow: hidden; /* Correção aqui */
+  overflow: hidden;
   position: relative;
-  height: 50px; /* altura visível da faixa */
+  height: 50px;
   margin-bottom: 20px;
+  background-color: #111; /* opcional: facilita a leitura */
 }
 
 .announcement {
-  position: absolute;
+  display: inline-block;
   white-space: nowrap;
   color: gold;
   font-size: 50px;
   font-weight: bold;
   animation: scroll-right 10s linear infinite;
+  will-change: transform;
 }
 
 @keyframes scroll-right {
   0% {
-    left: -100%;
+    transform: translateX(100%);
   }
   100% {
-    left: 100%;
+    transform: translateX(-100%);
   }
 }
