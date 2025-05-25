@@ -95,6 +95,21 @@
       padding-top: 10px;
       text-align: left;
     }
+
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      max-width: 350px;
+      z-index: 9999;
+      font-family: sans-serif;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -118,18 +133,16 @@
       ⬇️ Download DKLauncher
     </a>
   </div>
-<div>
-  <!-- POPUP - Server Info + Links com Toggle -->
-  <div id="popup3" style="position: fixed; top: 20px; right: 20px; background-color: #1e1e1e; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); max-width: 350px; z-index: 9999; font-family: sans-serif; text-align: left;">
-    <strong>Discord Server</strong>
-    <p><strong>Discord:</strong> https://discord.gg/C5avZVXmAc </p>
-    <p><strong>Lang:</strong> Portuguese </p>
-</div>
- 
-  
 
-  <!-- POPUP - Server Info + Links com Toggle -->
-  <div id="popup" style="position: fixed; top: 20px; right: 20px; background-color: #1e1e1e; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); max-width: 350px; z-index: 9999; font-family: sans-serif; text-align: left;">
+  <!-- POPUP 1: Discord Info -->
+  <div id="popup-discord" class="popup">
+    <strong>Discord Server</strong>
+    <p><strong>Discord:</strong> <a href="https://discord.gg/C5avZVXmAc" target="_blank" rel="noopener noreferrer">https://discord.gg/C5avZVXmAc</a></p>
+    <p><strong>Lang:</strong> Portuguese</p>
+  </div>
+
+  <!-- POPUP 2: UniversoCraft Info -->
+  <div id="popup-universocraft" class="popup" style="top: 180px;">
     <strong>🌍 Join UniversoCraft Now!</strong>
     <p><strong>IP:</strong> mc.universocraft.com <span id="toggle-arrow">⬇️</span></p>
     <p><strong>Country:</strong> Spain 🇪🇸</p>
@@ -139,13 +152,12 @@
 
     <div id="more-info">
       <p><strong>🔗 Links of UniversoCraft</strong></p>
-      <p><strong>Website:</strong> universocraft.com</p>
-      <p><strong>Store:</strong> tienda.universocraft.com</p>
-      <p><strong>Support:</strong> soporte.universocraft.com</p>
-      <p><strong>Discord:</strong> discord.gg/universocraft</p>
+      <p><strong>Website:</strong> <a href="https://universocraft.com" target="_blank">universocraft.com</a></p>
+      <p><strong>Store:</strong> <a href="https://tienda.universocraft.com" target="_blank">tienda.universocraft.com</a></p>
+      <p><strong>Support:</strong> <a href="https://soporte.universocraft.com" target="_blank">soporte.universocraft.com</a></p>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/universocraft" target="_blank">discord.gg/universocraft</a></p>
     </div>
   </div>
-  
 
   <div class="footer">
     DKLauncher © 2025 - Total Protection Corporation
@@ -166,7 +178,6 @@
     updatePlayerCount();
     setInterval(updatePlayerCount, 1000);
 
-    // Toggle exibição dos links
     const arrow = document.getElementById("toggle-arrow");
     const moreInfo = document.getElementById("more-info");
 
