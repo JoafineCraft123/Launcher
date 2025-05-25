@@ -82,6 +82,19 @@
       font-size: 14px;
       color: #888;
     }
+
+    #toggle-arrow {
+      cursor: pointer;
+      margin-left: 8px;
+    }
+
+    #more-info {
+      display: none;
+      margin-top: 15px;
+      border-top: 1px solid #444;
+      padding-top: 10px;
+      text-align: left;
+    }
   </style>
 </head>
 <body>
@@ -106,23 +119,22 @@
     </a>
   </div>
 
-  <!-- POPUP 1 - Server Info -->
-  <div id="popup" style="position: fixed; top: 20px; right: 20px; background-color: #1e1e1e; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); max-width: 350px; z-index: 9999; font-family: sans-serif;">
+  <!-- POPUP - Server Info + Links com Toggle -->
+  <div id="popup" style="position: fixed; top: 20px; right: 20px; background-color: #1e1e1e; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); max-width: 350px; z-index: 9999; font-family: sans-serif; text-align: left;">
     <strong>🌍 Join UniversoCraft Now!</strong>
-    <p><strong>IP:</strong> mc.universocraft.com</p>
+    <p><strong>IP:</strong> mc.universocraft.com <span id="toggle-arrow">⬇️</span></p>
     <p><strong>Country:</strong> Spain 🇪🇸</p>
     <p><strong>Players Online:</strong> <span id="player-count">Loading...</span></p>
     <p><strong>Minigames Available:</strong> 25</p>
     <p><strong>News:</strong> New maps released, special events this weekend, and exclusive rewards for active players!</p>
-  </div>
 
-  <!-- POPUP 2 - Links Info -->
-  <div id="popup2" style="position: fixed; top: 270px; right: 20px; background-color: #1e1e1e; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.5); max-width: 350px; z-index: 9999; font-family: sans-serif;">
-    <strong>🔗 Links of UniversoCraft</strong>
-    <p><strong>Website:</strong> universocraft.com</p>
-    <p><strong>Store:</strong> tienda.universocraft.com</p>
-    <p><strong>Support:</strong> soporte.universocraft.com</p>
-    <p><strong>Discord:</strong> discord.gg/universocraft</p>
+    <div id="more-info">
+      <p><strong>🔗 Links of UniversoCraft</strong></p>
+      <p><strong>Website:</strong> universocraft.com</p>
+      <p><strong>Store:</strong> tienda.universocraft.com</p>
+      <p><strong>Support:</strong> soporte.universocraft.com</p>
+      <p><strong>Discord:</strong> discord.gg/universocraft</p>
+    </div>
   </div>
 
   <div class="footer">
@@ -143,6 +155,16 @@
 
     updatePlayerCount();
     setInterval(updatePlayerCount, 1000);
+
+    // Toggle exibição dos links
+    const arrow = document.getElementById("toggle-arrow");
+    const moreInfo = document.getElementById("more-info");
+
+    arrow.addEventListener("click", () => {
+      const isHidden = moreInfo.style.display === "none";
+      moreInfo.style.display = isHidden ? "block" : "none";
+      arrow.textContent = isHidden ? "⬆️" : "⬇️";
+    });
   </script>
 
 </body>
