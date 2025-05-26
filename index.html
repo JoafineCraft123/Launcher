@@ -3,13 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DKLauncher - Your Ultimate Minecraft Launcher</title>
+  <title>DKLauncher - The Ultimate Minecraft Experience</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
+    :root {
+      --primary-color: #00ff88;
+      --secondary-color: #00ffaa;
+      --background-dark: #0f0f0f;
+      --background-card: #1a1a1a;
+      --header-bg: #1b1b1b;
+      --button-bg: #00cc66;
+      --button-hover: #00994d;
+      --font-main: 'Segoe UI', sans-serif;
+    }
+
     body {
-      background-color: #0f0f0f;
+      background-color: var(--background-dark);
       color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: var(--font-main);
       margin: 0;
       padding: 0;
     }
@@ -18,12 +29,13 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: #1b1b1b;
-      padding: 10px 20px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+      background-color: var(--header-bg);
+      padding: 12px 24px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      font-size: 15px;
     }
 
     #datetime {
@@ -33,43 +45,49 @@
 
     h1 {
       text-align: center;
-      font-size: 36px;
-      margin: 40px 0 20px;
-      color: #00ff88;
-      text-shadow: 0 0 10px #00ff88;
+      font-size: 38px;
+      margin: 50px 0 25px;
+      color: var(--primary-color);
+      text-shadow: 0 0 15px var(--primary-color);
     }
 
     .section {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 20px;
-      background-color: #1a1a1a;
-      border-radius: 16px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+      padding: 25px;
+      background-color: var(--background-card);
+      border-radius: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
     }
 
     .section h2 {
-      color: #00ffaa;
-      font-size: 24px;
-      margin-bottom: 10px;
+      color: var(--secondary-color);
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    ul, p {
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     .download-button {
-      background-color: #00cc66;
+      background-color: var(--button-bg);
       color: white;
-      padding: 15px 30px;
-      font-size: 20px;
+      padding: 18px 36px;
+      font-size: 22px;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       display: inline-block;
-      margin: 20px 0;
-      transition: 0.3s;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.5);
+      margin: 25px 0;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
     }
 
     .download-button:hover {
-      background-color: #00994d;
+      background-color: var(--button-hover);
+      transform: scale(1.05);
     }
 
     .popup {
@@ -79,25 +97,25 @@
       transform: translate(-50%, -50%);
       background: #222;
       color: #fff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+      padding: 35px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0, 255, 136, 0.7);
       z-index: 9999;
       display: none;
     }
 
     .popup h3 {
       margin-top: 0;
-      color: #00ffaa;
+      color: var(--secondary-color);
     }
 
     .popup button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 17px;
       border: none;
-      border-radius: 6px;
-      background-color: #00cc66;
+      border-radius: 8px;
+      background-color: var(--button-bg);
       color: white;
       cursor: pointer;
     }
@@ -105,8 +123,8 @@
     .footer {
       text-align: center;
       font-size: 14px;
-      color: #666;
-      margin: 40px 0 20px;
+      color: #888;
+      margin: 50px 0 25px;
     }
   </style>
 </head>
@@ -122,36 +140,38 @@
 <div class="section">
   <h2>Launcher Features</h2>
   <ul>
-    <li>✔️ Updated Minecraft Versions</li>
-    <li>✔️ FPS Booster Technology</li>
-    <li>✔️ Smooth Gameplay with Low Latency</li>
-    <li>✔️ Windows 10 & 11 Support</li>
-    <li>✔️ Optimized Server Connectivity</li>
+    <li>✔️ Supports All Minecraft Versions</li>
+    <li>✔️ Integrated FPS Boosters</li>
+    <li>✔️ Real-Time Optimization Algorithms</li>
+    <li>✔️ Fully Compatible with Windows 10 & 11</li>
+    <li>✔️ Server Auto-Pinger with Latency Estimation</li>
+    <li>✔️ Auto-Update System with Changelog Viewer</li>
+    <li>✔️ Game Logs and Crash Reports Manager</li>
   </ul>
 </div>
 
 <div class="section">
   <h2>Download</h2>
-  <a class="download-button" href="#" onclick="alert('Download triggered!')">⬇️ Download DKLauncher</a>
+  <a class="download-button" href="https://www.mediafire.com/file/w8eqfy62xxfnmtz/DKLauncherInstaller.exe/file" target="_blank">⬇️ Download DKLauncher Installer</a>
 </div>
 
 <div class="section">
-  <h2>Community Discord</h2>
-  <p>🎧 Join our official Discord server for support and community interaction.</p>
-  <p><strong>Username:</strong> gustavo20100325</p>
-  <p><strong>Server Invite:</strong> discord.gg/zW8d2EXGaQ</p>
-</div>
-
-<div class="section">
-  <h2>Support & Contacts</h2>
-  <p><strong>Email:</strong> joaquim01820@gmail.com</p>
+  <h2>Join Our Community</h2>
+  <p>🎧 Connect with thousands of players on our official Discord server.</p>
   <p><strong>Discord:</strong> gustavo20100325</p>
+  <p><strong>Invite Link:</strong> discord.gg/zW8d2EXGaQ</p>
 </div>
 
 <div class="section">
-  <h2>Server Highlights</h2>
+  <h2>Need Help?</h2>
+  <p><strong>Email Support:</strong> joaquim01820@gmail.com</p>
+  <p><strong>Developer Contact:</strong> Discord - gustavo20100325</p>
+</div>
+
+<div class="section">
+  <h2>Popular Servers</h2>
   <ul>
-    <li><strong>🥇 UniversoCraft</strong> - mc.universocraft.com <button onclick="showPopup()">Entrar</button></li>
+    <li><strong>🥇 UniversoCraft</strong> - mc.universocraft.com <button onclick="showPopup()">Join</button></li>
     <li><strong>🥈 Mineland</strong> - mineland.net</li>
     <li><strong>🥉 Skyblock Network</strong> - skyblocknetwork.com</li>
     <li><strong>🏅 UltraMC</strong> - ultramc.net</li>
@@ -159,27 +179,27 @@
 </div>
 
 <div class="section">
-  <h2>Our Team</h2>
+  <h2>Meet the Team</h2>
   <ul>
-    <li><strong>JoafineCraft123</strong> - Owner</li>
-    <li><strong>Shander</strong> - Sub-Owner</li>
-    <li><strong>ISleep7x</strong> - Staff</li>
-    <li><strong>Davi5893</strong> - Staff</li>
-    <li><strong>Gustavo2010</strong> - Staff</li>
-    <li><strong>Parcerias</strong> - Staff</li>
-    <li><strong>Tsuki</strong> - Staff</li>
+    <li><strong>JoafineCraft123</strong> - Founder</li>
+    <li><strong>Shander</strong> - Co-Founder</li>
+    <li><strong>ISleep7x</strong> - Senior Developer</li>
+    <li><strong>Davi5893</strong> - Backend Engineer</li>
+    <li><strong>Gustavo2010</strong> - UI/UX Designer</li>
+    <li><strong>Parcerias</strong> - Community Manager</li>
+    <li><strong>Tsuki</strong> - Moderator</li>
   </ul>
 </div>
 
 <div class="popup" id="popup">
-  <h3>Entrar no UniversoCraft</h3>
-  <p>Para entrar no UniversoCraft, abra seu Minecraft e conecte-se a:</p>
+  <h3>Join UniversoCraft</h3>
+  <p>Launch Minecraft and connect to:</p>
   <p><strong>mc.universocraft.com</strong></p>
-  <button onclick="closePopup()">Fechar</button>
+  <button onclick="closePopup()">Close</button>
 </div>
 
 <div class="footer">
-  DKLauncher © 2025 - Total Protection Corporation
+  DKLauncher © 2025 - All rights reserved by Total Protection Corp.
 </div>
 
 <script>
