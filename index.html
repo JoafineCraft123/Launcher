@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>🔥 DKLauncher - The Minecraft Launcher</title>
-<link rel="icon" type="image/png" href="favicon.png">
+  <title>DKLauncher - The Minecraft Launcher</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <style>
     body {
       background-color: #1b1b1b;
       color: #ffffff;
@@ -39,27 +41,6 @@
       width: 100%;
     }
 
-    .announcement {
-      color: gold;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      animation: scroll-right 15s linear infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      width: 100%;
-      display: inline-block;
-    }
-
-    @keyframes scroll-right {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
     .download-button {
       display: inline-block;
       padding: 18px 35px;
@@ -71,6 +52,7 @@
       text-decoration: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
     .download-button:hover {
@@ -133,7 +115,6 @@
       ⬇️ Download DKLauncher
     </a>
   </div>
-
 
   <!-- POPUP 2: UniversoCraft Info -->
   <div id="popup-universocraft" class="popup" style="top: 180px;">
