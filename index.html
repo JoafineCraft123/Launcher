@@ -11,16 +11,24 @@
       background-color: #1b1b1b;
       color: #ffffff;
       font-family: 'Verdana', sans-serif;
-      text-align: center;
-      padding: 50px 20px;
       margin: 0;
+      padding: 0 20px 60px;
+      text-align: center;
     }
 
     h1 {
-      font-size: 40px;
+      font-size: 42px;
       color: #00ff00;
-      margin-bottom: 40px;
+      margin: 50px 0 30px;
       text-shadow: 2px 2px #000;
+    }
+
+    h2 {
+      color: #00ff00;
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 26px;
+      text-shadow: 0 0 8px #00ff00;
     }
 
     .container {
@@ -29,16 +37,27 @@
       align-items: center;
     }
 
-    .features {
+    .card {
       background-color: #2a2a2a;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-      font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 30px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.8);
       max-width: 600px;
       width: 100%;
+      margin: 30px auto;
+      font-size: 18px;
+      text-align: left;
+    }
+
+    .card p, .card li {
+      line-height: 1.8;
+    }
+
+    .highlight-list li {
+      background: #333;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin-bottom: 10px;
     }
 
     .download-button {
@@ -53,16 +72,54 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       transition: background-color 0.3s ease;
       cursor: pointer;
+      margin-top: 15px;
     }
 
     .download-button:hover {
       background-color: #009900;
     }
 
+    .popup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #1e1e1e;
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      max-width: 350px;
+      z-index: 9999;
+      text-align: left;
+    }
+
     .footer {
       margin-top: 70px;
       font-size: 14px;
       color: #888;
+      text-align: center;
+    }
+
+    a.btn-discord {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #5865F2;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(88,101,242,0.6);
+      transition: background-color 0.3s ease;
+    }
+
+    a.btn-discord:hover {
+      background-color: #4752c4;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
     }
 
     #toggle-arrow {
@@ -75,22 +132,6 @@
       margin-top: 15px;
       border-top: 1px solid #444;
       padding-top: 10px;
-      text-align: left;
-    }
-
-    .popup {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #1e1e1e;
-      color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      max-width: 350px;
-      z-index: 9999;
-      font-family: sans-serif;
-      text-align: left;
     }
   </style>
 </head>
@@ -99,152 +140,66 @@
   <h1>Welcome to DKLauncher</h1>
 
   <div class="container">
-    <div class="features">
+
+    <!-- Features -->
+    <div class="card">
+      <h2>🚀 Features</h2>
       <p>Get ready for a new experience with DKLauncher!</p>
-      <p>✅ Updated Versions</p>
-      <p>✅ More FPS</p>
-      <p>✅ No Lag</p>
-      <p>✅ Supported For Windows 10/11</p>
-      <p>✅ Good connection to servers</p>
+      <ul>
+        <li>✅ Updated Versions</li>
+        <li>✅ More FPS</li>
+        <li>✅ No Lag</li>
+        <li>✅ Windows 10/11 Support</li>
+        <li>✅ Great Server Connections</li>
+      </ul>
+      <a class="download-button" href="https://download2273.mediafire.com/q8gsqugmz0qgtA0WY35i5jB9gxFFlk8t0tgk7tfhe0wPP2zGvmIEDCown-7mfqCTT3BcjgOZfOjn2_a5Z0Kt40xRhSz3wm4g5Q-FQsR0HQYg-Q_rBYJtM1AIT-y7bdiE4QmAJ20sQY6ZbZnTGynPy8bUbRMIxQJP3a9c2koHKkI/1y9h9b43mtjqv6g/DKLauncher.exe" target="_blank" rel="noopener noreferrer">⬇️ Download DKLauncher</a>
     </div>
 
-    <a class="download-button" 
-       href="https://download2273.mediafire.com/q8gsqugmz0qgtA0WY35i5jB9gxFFlk8t0tgk7tfhe0wPP2zGvmIEDCown-7mfqCTT3BcjgOZfOjn2_a5Z0Kt40xRhSz3wm4g5Q-FQsR0HQYg-Q_rBYJtM1AIT-y7bdiE4QmAJ20sQY6ZbZnTGynPy8bUbRMIxQJP3a9c2koHKkI/1y9h9b43mtjqv6g/DKLauncher.exe" 
-       target="_blank" 
-       rel="noopener noreferrer">
-      ⬇️ Download DKLauncher
-    </a>
-  </div>
+    <!-- TOP Servers -->
+    <div class="card">
+      <h2>🌐 TOP Minecraft Servers</h2>
+      <ul class="highlight-list">
+        <li>🥇 <strong style="color: #00ffcc;">UniversoCraft</strong> – mc.universocraft.com</li>
+        <li>🥈 <strong style="color: #00ccff;">Mineland</strong> – mineland.net</li>
+        <li>🥉 <strong style="color: #ffaa00;">Skyblock Network</strong> – skyblocknetwork.com</li>
+        <li>🏅 <strong style="color: #ff66cc;">UltraMC</strong> – ultramc.net</li>
+      </ul>
+    </div>
 
-<!-- Simple Servers Popup Melhorado -->
-<div id="servers-popup" style="
-  background-color: #2a2a2a;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.8);
-  max-width: 600px;
-  margin: 50px auto;
-  color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 18px;
-  text-align: left;
-  position: relative;
-">
-  <h2 style="
-    color: #00ff00;
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 28px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 8px #00ff00;
-  ">🌐 TOP Minecraft Servers</h2>
-  <ul style="list-style: none; padding: 0; margin: 0;">
-    <li style="margin-bottom: 15px; padding: 10px 15px; background: #333; border-radius: 10px;">
-      <span style="font-size: 20px; color: gold; font-weight: bold;">🥇 TOP 1:</span>
-      <strong style="color: #00ffcc;">UniversoCraft</strong> – <span style="color: #ccc;">mc.universocraft.com</span>
-    </li>
-    <li style="margin-bottom: 15px; padding: 10px 15px; background: #333; border-radius: 10px;">
-      <span style="font-size: 20px; color: silver; font-weight: bold;">🥈 TOP 2:</span>
-      <strong style="color: #00ccff;">Mineland</strong> – <span style="color: #ccc;">mineland.net</span>
-    </li>
-    <li style="margin-bottom: 15px; padding: 10px 15px; background: #333; border-radius: 10px;">
-      <span style="font-size: 20px; color: #cd7f32; font-weight: bold;">🥉 TOP 3:</span>
-      <strong style="color: #ffaa00;">Skyblock Network</strong> – <span style="color: #ccc;">skyblocknetwork.com</span>
-    </li>
-    <li style="margin-bottom: 5px; padding: 10px 15px; background: #333; border-radius: 10px;">
-      <span style="font-size: 20px; color: #999; font-weight: bold;">🏅 TOP 4:</span>
-      <strong style="color: #ff66cc;">UltraMC</strong> – <span style="color: #ccc;">ultramc.net</span>
-    </li>
-  </ul>
-</div>
+    <!-- Discord -->
+    <div class="card" style="text-align: center;">
+      <h2>🎧 Join Our Discord</h2>
+      <p>Welcome to <strong>master x</strong> community! Connect with players, get updates, and have fun.</p>
+      <a class="btn-discord" href="https://discord.gg/zW8d2EXGaQ" target="_blank">Join Discord</a>
+    </div>
 
-
-
-
-<!-- Discord Server Popup -->
-<div id="discord-popup" style="
-  background-color: #2a2a2a;
-  padding: 25px 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-  max-width: 600px;
-  margin: 30px auto 0;
-  color: white;
-  font-size: 18px;
-  text-align: center;
-">
-  <h2 style="color: #00ff00; margin-bottom: 15px;">Join Our Discord Server</h2>
-  <p style="font-size: 20px; margin-bottom: 20px;">Welcome to <strong>master x</strong> community! Connect with players, get updates, and have fun.</p>
-  <a href="https://discord.gg/zW8d2EXGaQ" target="_blank" rel="noopener noreferrer" 
-     style="
-       display: inline-block;
-       padding: 12px 25px;
-       background-color: #5865F2;
-       color: white;
-       border-radius: 10px;
-       text-decoration: none;
-       font-weight: bold;
-       font-size: 18px;
-       box-shadow: 0 4px 10px rgba(88,101,242,0.6);
-       transition: background-color 0.3s ease;
-     "
-     onmouseover="this.style.backgroundColor='#4752c4'"
-     onmouseout="this.style.backgroundColor='#5865F2'">
-    Join Discord
-  </a>
-</div>
-
-
-
-  <!-- ADM List Popup -->
-<div id="admlist-popup" style="
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-  max-width: 600px;
-  margin: 30px auto 0;
-  color: white;
-  font-size: 18px;
-  text-align: left;
-">
-  <h2 style="color: #00ff00; text-align: center; margin-bottom: 20px;">Moderators List</h2>
-  <ul style="list-style: none; padding-left: 0;">
-    <li><strong>JoafineCraft123</strong> - Owner </li>
-    <li><strong>Shander</strong> - Sub-Owner </li>
-    <li><strong>ISleep7x</strong> - Staff </li>
-    <li><strong>Davi5893</strong> - Staff </li>
-    <li><strong>Gustavo2010</strong> - Staff </li>
-    <li><strong>Parcerias</strong> - Staff </li>
-    <li><strong>Tsuki</strong> - Staff </li>
-  </ul>
-</div>
-
-
+    <!-- Moderators -->
+    <div class="card">
+      <h2>🛡️ Moderators List</h2>
+      <ul>
+        <li><strong>JoafineCraft123</strong> - Owner</li>
+        <li><strong>Shander</strong> - Sub-Owner</li>
+        <li><strong>ISleep7x</strong> - Staff</li>
+        <li><strong>Davi5893</strong> - Staff</li>
+        <li><strong>Gustavo2010</strong> - Staff</li>
+        <li><strong>Parcerias</strong> - Staff</li>
+        <li><strong>Tsuki</strong> - Staff</li>
+      </ul>
+    </div>
 
     <!-- Support -->
-<div id="contact-popup" style="
-  background-color: #2a2a2a;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
-  max-width: 600px;
-  margin: 30px auto 0;
-  color: white;
-  font-size: 18px;
-  text-align: left;
-">
-  <h2 style="color: #00ff00; text-align: center; margin-bottom: 20px;">Support</h2>
-  <ul style="list-style: none; padding-left: 0;">
-    <li><strong>Email:</strong> joaquim01820@gmail.com </li>
-    <li><strong>Discord:</strong> gustavo20100325 </li>
-    <li><strong>Discord Server:</strong> https://discord.gg/zW8d2EXGaQ </li>
-  </ul>
-</div>
+    <div class="card">
+      <h2>📞 Support</h2>
+      <ul>
+        <li><strong>Email:</strong> joaquim01820@gmail.com</li>
+        <li><strong>Discord:</strong> gustavo20100325</li>
+        <li><strong>Discord Server:</strong> https://discord.gg/zW8d2EXGaQ</li>
+      </ul>
+    </div>
 
+  </div>
 
-
-  <!-- POPUP 2: UniversoCraft Info -->
+  <!-- UniversoCraft Info Popup -->
   <div id="popup-universocraft" class="popup" style="top: 180px;">
     <strong>🌍 Join UniversoCraft Now!</strong>
     <p><strong>IP:</strong> mc.universocraft.com <span id="toggle-arrow">⬇️</span></p>
@@ -261,9 +216,7 @@
     </div>
   </div>
 
-  <div class="footer">
-    DKLauncher © 2025 - Total Protection Corporation
-  </div>
+  <div class="footer">DKLauncher © 2025 - Total Protection Corporation</div>
 
   <script>
     async function updatePlayerCount() {
