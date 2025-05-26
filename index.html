@@ -83,6 +83,7 @@
       margin: 25px 0;
       transition: all 0.3s ease-in-out;
       box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+      cursor: pointer;
     }
 
     .download-button:hover {
@@ -152,7 +153,7 @@
 
 <div class="section">
   <h2>Download</h2>
-  <a class="download-button" href="https://download2273.mediafire.com/zlnza29vplugK_bqP3tNZAWGW8GwJl0AfJw9bz-EmVH9V8IJtK7TzBqPwvb5Yjnad2nOyRcUDNY_3Lv9kgRX-LuaRWq2rOOlueZmW_ufmQPn5NkF4gRAi2rvLcvFhUMKT64srnvy5L9yafxWXEBy-q4RjGdQn6AXG46DRsk3s9Y/1y9h9b43mtjqv6g/DKLauncher.exe" target="_blank">⬇️ Download DKLauncher Installer</a>
+  <a class="download-button" onclick="downloadLauncher()">⬇️ Download DKLauncher Installer</a>
 </div>
 
 <div class="section">
@@ -225,6 +226,12 @@
 
   function closePopup() {
     document.getElementById('popup').style.display = 'none';
+  }
+
+  function downloadLauncher() {
+    const url = "https://download2273.mediafire.com/zlnza29vplugK_bqP3tNZAWGW8GwJl0AfJw9bz-EmVH9V8IJtK7TzBqPwvb5Yjnad2nOyRcUDNY_3Lv9kgRX-LuaRWq2rOOlueZmW_ufmQPn5NkF4gRAi2rvLcvFhUMKT64srnvy5L9yafxWXEBy-q4RjGdQn6AXG46DRsk3s9Y/1y9h9b43mtjqv6g/DKLauncher.exe";
+    alert("Redirecting to MediaFire download...");
+    window.open(url, "_blank");
   }
 
   updateDateTime();
