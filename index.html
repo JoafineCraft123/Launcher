@@ -193,17 +193,40 @@
   </ul>
 </div>
 
-<div class="popup" id="popup">
-  <h3>Join UniversoCraft</h3>
-  <p>Launch Minecraft and connect to:</p>
-  <p><strong>mc.universocraft.com</strong></p>
-  <h3>UniversoCraft Website Links</h3>
-  <p>Website: www.universocraft.com</p>
-  <p>Store: www.tienda.universocraft.com</p>
-  <p>Support: www.soporte.universocraft.com</p>
-  <p>Discord: www.discord.gg/universocraft</p>
-  <button onclick="closePopup()">Close</button>
+<div class="popup" id="popup" style="
+  max-width: 350px;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+">
+  <h3 style="margin-bottom: 12px; color: #38bdf8; font-weight: 700; font-size: 1.5rem;">Join UniversoCraft</h3>
+  <p style="margin: 8px 0;">Launch Minecraft and connect to:</p>
+  <p style="margin: 8px 0; font-size: 1.1rem; color: #facc15;"><strong>mc.universocraft.com</strong></p>
+
+  <h3 style="margin-top: 24px; margin-bottom: 12px; color: #38bdf8; font-weight: 700; font-size: 1.5rem;">UniversoCraft Website Links</h3>
+  <p style="margin: 8px 0;">Website: <a href="https://www.universocraft.com" target="_blank" style="color:#38bdf8; text-decoration:none;">www.universocraft.com</a></p>
+  <p style="margin: 8px 0;">Store: <a href="https://www.tienda.universocraft.com" target="_blank" style="color:#38bdf8; text-decoration:none;">www.tienda.universocraft.com</a></p>
+  <p style="margin: 8px 0;">Support: <a href="https://www.soporte.universocraft.com" target="_blank" style="color:#38bdf8; text-decoration:none;">www.soporte.universocraft.com</a></p>
+  <p style="margin: 8px 0;">Discord: <a href="https://www.discord.gg/universocraft" target="_blank" style="color:#38bdf8; text-decoration:none;">discord.gg/universocraft</a></p>
+
+  <button onclick="closePopup()" style="
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#1d4ed8'" onmouseout="this.style.backgroundColor='#2563eb'">Close</button>
 </div>
+
 
 <div class="footer">
   DKLauncher © 2025 - All rights reserved by Total Protection Corp.
