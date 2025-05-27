@@ -7,26 +7,23 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     :root {
-      --primary-color: #4ade80; /* verde suave */
-      --secondary-color: #60a5fa; /* azul suave */
-      --background-dark: #121212; /* fundo escuro mais suave */
-      --background-card: #1f2937; /* fundo cartão escuro */
-      --header-bg: #1e293b; /* cabeçalho */
-      --button-bg: #22c55e; /* botão verde menos saturado */
-      --button-hover: #16a34a; /* hover mais escuro */
-      --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      --text-light: #d1d5db; /* cinza claro para textos */
-      --shadow-color: rgba(34, 197, 94, 0.4);
+      --primary-color: #00ff88;
+      --secondary-color: #00ffaa;
+      --background-dark: #0f0f0f;
+      --background-card: #1a1a1a;
+      --header-bg: #1b1b1b;
+      --button-bg: #00cc66;
+      --button-hover: #00994d;
+      --font-main: 'Segoe UI', sans-serif;
+      --shadow-color: rgba(0, 204, 102, 0.5);
     }
 
     body {
       background-color: var(--background-dark);
-      color: var(--text-light);
+      color: #f0f0f0;
       font-family: var(--font-main);
       margin: 0;
       padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     header {
@@ -40,21 +37,19 @@
       top: 0;
       z-index: 1000;
       font-size: 15px;
-      color: #a1a1aa;
     }
 
     #datetime {
       font-size: 14px;
-      color: #9ca3af;
-      font-weight: 500;
+      color: #ccc;
     }
 
     h1 {
       text-align: center;
-      font-size: 3rem;
+      font-size: 38px;
       margin: 50px 0 25px;
       color: var(--primary-color);
-      text-shadow: 0 0 10px var(--primary-color);
+      text-shadow: 0 0 15px var(--primary-color);
     }
 
     .section {
@@ -62,42 +57,37 @@
       margin: 0 auto 40px;
       padding: 25px 30px;
       background-color: var(--background-card);
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      color: #d1d5db;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     }
 
     .section h2 {
       color: var(--secondary-color);
-      font-size: 2rem;
-      margin-bottom: 16px;
+      font-size: 26px;
+      margin-bottom: 15px;
       font-weight: 700;
       letter-spacing: 0.05em;
     }
 
     ul, p {
-      font-size: 1.05rem;
+      font-size: 16px;
       line-height: 1.6;
-      margin: 8px 0;
-    }
-
-    ul li {
-      margin-bottom: 8px;
+      margin: 0;
+      padding: 0;
     }
 
     .download-button {
       background-color: var(--button-bg);
       color: white;
       padding: 18px 36px;
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 22px;
       text-decoration: none;
       border-radius: 12px;
       display: inline-block;
       margin: 25px 0;
-      box-shadow: 0 6px 14px var(--shadow-color);
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
       cursor: pointer;
-      transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
     }
 
     .download-button:hover {
@@ -105,19 +95,25 @@
       transform: scale(1.05);
     }
 
-    /* Popular Servers Section */
+    /* ===== Popular Servers Styles ===== */
     .servers-list {
-      max-width: 480px;
-      font-family: var(--font-main);
+      /* mesmo estilo que .section para uniformidade */
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 25px 30px;
+      background-color: var(--background-card);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
       color: #cbd5e1;
-      margin: 0 auto;
+      font-family: var(--font-main);
     }
 
     .servers-list h2 {
-      font-size: 1.8rem;
+      font-size: 26px;
       margin-bottom: 20px;
       color: var(--secondary-color);
       font-weight: 700;
+      letter-spacing: 0.05em;
     }
 
     .servers-list ul {
@@ -128,41 +124,50 @@
 
     .servers-list li {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 12px 0;
       border-bottom: 1px solid #334155;
-      font-size: 1rem;
+      font-size: 1.1rem;
+      gap: 12px;
     }
 
     .servers-list li:last-child {
       border-bottom: none;
     }
 
-    .servers-list button {
+    .servers-list li span {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: #a3e635;
+      font-weight: 600;
+    }
+
+    .servers-list li span strong {
+      color: #a3e635;
+    }
+
+    .servers-list li button {
       background: var(--button-bg);
       color: white;
       border: none;
-      padding: 6px 16px;
-      font-size: 0.9rem;
+      padding: 8px 18px;
+      font-size: 1rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 2px 6px var(--shadow-color);
+      box-shadow: 0 4px 12px var(--shadow-color);
       transition: background-color 0.3s ease, transform 0.15s ease;
       white-space: nowrap;
     }
 
-    .servers-list button:hover {
+    .servers-list li button:hover {
       background-color: var(--button-hover);
       transform: scale(1.05);
     }
 
-    .servers-list span strong {
-      color: #a3e635;
-    }
-
-    /* Popup styles */
+    /* Popup Styles */
     .popup {
       position: fixed;
       top: 50%;
@@ -170,47 +175,41 @@
       transform: translate(-50%, -50%);
       background: #1e293b;
       color: #f8fafc;
-      padding: 30px 40px;
-      border-radius: 14px;
-      box-shadow: 0 0 30px rgba(34, 197, 94, 0.6);
-      z-index: 9999;
-      display: none;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       font-family: var(--font-main);
       text-align: center;
-      max-width: 380px;
+      display: none;
+      z-index: 9999;
+      max-width: 350px;
     }
 
     .popup h3 {
-      margin: 0 0 16px 0;
-      color: var(--secondary-color);
+      margin-bottom: 12px;
+      color: #38bdf8;
       font-weight: 700;
-      font-size: 1.6rem;
+      font-size: 1.5rem;
     }
 
     .popup p {
       margin: 8px 0;
-      font-size: 1rem;
-      color: #d1d5db;
     }
 
     .popup p strong {
-      color: #fde68a;
+      color: #facc15;
       font-size: 1.1rem;
     }
 
     .popup a {
-      color: var(--secondary-color);
+      color: #38bdf8;
       text-decoration: none;
     }
 
-    .popup a:hover {
-      text-decoration: underline;
-    }
-
     .popup button {
-      margin-top: 24px;
-      background: var(--secondary-color);
-      color: #111827;
+      margin-top: 20px;
+      background: #2563eb;
+      color: white;
       border: none;
       padding: 12px 28px;
       font-size: 1rem;
@@ -218,18 +217,17 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      box-shadow: 0 4px 12px rgba(96, 165, 250, 0.5);
     }
 
     .popup button:hover {
-      background-color: #2563eb;
-      color: white;
+      background-color: #1d4ed8;
     }
 
+    /* Footer */
     .footer {
       text-align: center;
       font-size: 14px;
-      color: #6b7280;
+      color: #888;
       margin: 50px 0 25px;
     }
   </style>
@@ -266,7 +264,7 @@
 <div class="section">
   <h2>Join Our Community</h2>
   <p>🎧 Connect with thousands of players on our official Discord server.</p>
-  <p><strong>Discord Link:</strong> <a href="https://discord.gg/zW8d2EXGaQ" target="_blank" rel="noopener noreferrer" style="color: var(--secondary-color); text-decoration:none;">discord.gg/zW8d2EXGaQ</a></p>
+  <p><strong>Discord Link:</strong> discord.gg/zW8d2EXGaQ</p>
 </div>
 
 <div class="section">
@@ -275,6 +273,7 @@
   <p><strong>Developer Contact:</strong> Discord - gustavo20100325</p>
 </div>
 
+<!-- Popular Servers Section with consistent styling -->
 <div class="section servers-list">
   <h2>Popular Servers</h2>
   <ul>
@@ -283,13 +282,16 @@
       <button onclick="showPopup()">Join</button>
     </li>
     <li>
-      <strong>🥈 Mineland</strong> - mineland.net
+      <span><strong>🥈 Mineland</strong> - mineland.net</span>
+      <button disabled style="opacity:0.5; cursor:not-allowed;">Coming Soon</button>
     </li>
     <li>
-      <strong>🥉 Skyblock Network</strong> - skyblocknetwork.com
+      <span><strong>🥉 Skyblock Network</strong> - skyblocknetwork.com</span>
+      <button disabled style="opacity:0.5; cursor:not-allowed;">Coming Soon</button>
     </li>
     <li>
-      <strong>🏅 UltraMC</strong> - ultramc.net
+      <span><strong>🏅 UltraMC</strong> - ultramc.net</span>
+      <button disabled style="opacity:0.5; cursor:not-allowed;">Coming Soon</button>
     </li>
   </ul>
 </div>
@@ -307,6 +309,7 @@
   </ul>
 </div>
 
+<!-- Popup -->
 <div class="popup" id="popup">
   <h3>Join UniversoCraft</h3>
   <p>Launch Minecraft and connect to:</p>
@@ -316,28 +319,26 @@
   <p>Website: <a href="https://www.universocraft.com" target="_blank">www.universocraft.com</a></p>
   <p>Store: <a href="https://tienda.universocraft.com/" target="_blank">www.tienda.universocraft.com</a></p>
   <p>Support: <a href="https://soporte.universocraft.com/" target="_blank">www.soporte.universocraft.com</a></p>
-  <p>Discord: <a href="https://www.discord.gg/universocraft" target="_blank">discord.gg/universocraft</a></p>
 
   <button onclick="closePopup()">Close</button>
 </div>
 
-<div class="footer">
-  <p>© 2025 DKLauncher - All rights reserved.</p>
-</div>
+<footer class="footer">
+  © 2025 DKLauncher Team. All rights reserved.
+</footer>
 
 <script>
+  // Atualiza data e hora no header
   function updateDateTime() {
     const now = new Date();
-    const options = { 
-      year: 'numeric', month: 'short', day: 'numeric',
-      hour: '2-digit', minute: '2-digit', second: '2-digit',
-      hour12: false
-    };
-    document.getElementById('datetime').textContent = now.toLocaleString('en-US', options);
+    const date = now.toLocaleDateString('en-GB');
+    const time = now.toLocaleTimeString('en-GB');
+    document.getElementById('datetime').textContent = `${date} ${time}`;
   }
   setInterval(updateDateTime, 1000);
   updateDateTime();
 
+  // Popup control
   function showPopup() {
     document.getElementById('popup').style.display = 'block';
   }
