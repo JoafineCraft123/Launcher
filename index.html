@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,15 +7,15 @@
   <link rel="icon" type="image/png" href="favicon.png" />
   <style>
     :root {
-      --primary-colour: #00ff88;
-      --secondary-colour: #00ffaa;
+      --primary-color: #00ff88;
+      --secondary-color: #00ffaa;
       --background-dark: #0f0f0f;
       --background-card: #1a1a1a;
       --header-bg: #1b1b1b;
       --button-bg: #00cc66;
       --button-hover: #00994d;
       --font-main: 'Segoe UI', sans-serif;
-      --shadow-colour: rgba(0, 204, 102, 0.5);
+      --shadow-color: rgba(0, 204, 102, 0.5);
     }
 
     * {
@@ -26,15 +26,15 @@
       margin: 0;
       padding: 0;
       font-family: var(--font-main);
-      background-colour: var(--background-dark);
-      colour: #f0f0f0;
+      background-color: var(--background-dark);
+      color: #f0f0f0;
     }
 
     header {
       display: flex;
       justify-content: space-between;
-      align-items: centre;
-      background-colour: var(--header-bg);
+      align-items: center;
+      background-color: var(--header-bg);
       padding: 12px 24px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
       position: sticky;
@@ -45,28 +45,28 @@
 
     #datetime {
       font-size: 14px;
-      colour: #ccc;
+      color: #ccc;
     }
 
     h1 {
-      text-align: centre;
+      text-align: center;
       font-size: 38px;
       margin: 50px 0 25px;
-      colour: var(--primary-colour);
-      text-shadow: 0 0 15px var(--primary-colour);
+      color: var(--primary-color);
+      text-shadow: 0 0 15px var(--primary-color);
     }
 
     .section {
       max-width: 900px;
       margin: 0 auto 40px;
       padding: 25px 30px;
-      background-colour: var(--background-card);
+      background-color: var(--background-card);
       border-radius: 20px;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
     }
 
     .section h2 {
-      colour: var(--secondary-colour);
+      color: var(--secondary-color);
       font-size: 26px;
       margin-bottom: 15px;
       font-weight: 700;
@@ -82,8 +82,8 @@
     }
 
     .download-button {
-      background-colour: var(--button-bg);
-      colour: white;
+      background-color: var(--button-bg);
+      color: white;
       padding: 18px 36px;
       font-size: 22px;
       text-decoration: none;
@@ -96,12 +96,145 @@
     }
 
     .download-button:hover {
-      background-colour: var(--button-hover);
+      background-color: var(--button-hover);
       transform: scale(1.05);
     }
 
-    /* The rest of your styles stay the same, only replacing American with British spellings */
-    /* ... */
+    /* ===== Popular Servers Styles ===== */
+    .servers-list {
+      /* Reutiliza estilo de .section */
+      max-width: 900px;
+      margin: 0 auto 40px;
+      padding: 25px 30px;
+      background-color: var(--background-card);
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+      color: #cbd5e1;
+    }
+
+    .servers-list h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: var(--secondary-color);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .servers-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .servers-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #334155;
+      font-size: 1.1rem;
+      gap: 12px;
+    }
+
+    .servers-list li:last-child {
+      border-bottom: none;
+    }
+
+    .servers-list li span {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: #a3e635;
+      font-weight: 600;
+    }
+
+    .servers-list li button {
+      background: var(--button-bg);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px var(--shadow-color);
+      transition: background-color 0.3s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .servers-list li button:hover {
+      background-color: var(--button-hover);
+      transform: scale(1.05);
+    }
+
+    .servers-list li button[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* ===== Popup Styles ===== */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      font-family: var(--font-main);
+      text-align: center;
+      display: none;
+      z-index: 9999;
+      max-width: 350px;
+    }
+
+    .popup h3 {
+      margin-bottom: 12px;
+      color: #38bdf8;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .popup p {
+      margin: 8px 0;
+    }
+
+    .popup p strong {
+      color: #facc15;
+      font-size: 1.1rem;
+    }
+
+    .popup a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .popup button {
+      margin-top: 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .popup button:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin: 50px 0 25px;
+    }
   </style>
 </head>
 
@@ -119,7 +252,7 @@
     <ul>
       <li>✔️ Supports All Minecraft Versions</li>
       <li>✔️ Integrated FPS Boosters</li>
-      <li>✔️ Real-Time Optimisation Algorithms</li>
+      <li>✔️ Real-Time Optimization Algorithms</li>
       <li>✔️ Fully Compatible with Windows 10 & 11</li>
       <li>✔️ Server Auto-Pinger with Latency Estimation</li>
       <li>✔️ Auto-Update System with Changelog Viewer</li>
@@ -201,12 +334,12 @@
   </footer>
 
   <script>
-    // Updates date and time in the header
+    // Atualiza data e hora no header
     function updateDateTime() {
       const now = new Date();
       const date = now.toLocaleDateString('en-GB');
       const time = now.toLocaleTimeString('en-GB');
-      document.getElementById('datetime').textContent = `${date} ${time}`;
+      document.getElementById('datetime').textContent = ${date} ${time};
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
