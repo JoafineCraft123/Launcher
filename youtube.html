@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Filme do Steve em 3D</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.150.1/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+<script>
+  let scene, camera, renderer, steve;
+
+  init();
+  animate();
+
+  function init() {
+    // Cena e câmera
+    scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x87ceeb); // Céu azul
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 2, 5);
+
+    // Renderizador
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Controles (arrastar câmera com mouse)
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+    // Luzes
+    const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
+    light.position.set(0, 20, 0);
+    scene.add(light);
+
+    const dirLight = new THREE.DirectionalLight(0xffffff, 1);
+    dirLight.position.set(5, 10, 7.5);
+    scene.add(dirLight);
+
+    // Chão estilo Minecraft
+    const texture = new THREE.TextureLoader().load('https://i.imgur.com/7xCzFcr.png');
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(10, 10);
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(100, 100),
+      new THREE.MeshLambertMaterial({ map: texture })
+    );
+    ground.rotation.x = -Math.PI / 2;
+    scene.add(ground);
+
+    // Carregar modelo 3D do Steve (GLB/GLTF)
+    const loader = new THREE.GLTFLoader();
+    loader.load('https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/AnimatedCube/glTF-Binary/AnimatedCube.glb',
+      function (gltf) {
+        steve = gltf.scene;
+        steve.scale.set(1, 1, 1);
+        steve.position.set(0, 0, 0);
+        scene.add(steve);
+      },
+      undefined,
+      function (error) {
+        console.error('Erro ao carregar modelo:', error);
+      }
+    );
+
+    window.addEventListener('resize', onWindowResize, false);
+  }
+
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
+  // Animação: move o Steve em uma trajetória simples
+  let t = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+
+    if (steve) {
+      steve.position.x = Math.sin(t) * 5;
+      steve.position.z = Math.cos(t) * 5;
+      steve.rotation.y += 0.01;
+    }
+
+    t += 0.01;
+
+    renderer.render(scene, camera);
+  }
+</script>
+</body>
+</html>
