@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <title>AI Voice Chatbot</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; }
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
     #chat p { margin: 0.5rem 0; }
-    button { padding: 0.5rem 1rem; font-size: 1rem; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; margin-bottom: 1rem; }
   </style>
 </head>
 <body>
@@ -34,6 +34,7 @@
       const p = document.createElement('p');
       p.innerHTML = `<strong>${role === 'user' ? 'You' : 'AI'}:</strong> ${text}`;
       chatDiv.appendChild(p);
+      chatDiv.scrollTop = chatDiv.scrollHeight;
     }
 
     function speak(text) {
@@ -43,18 +44,22 @@
     }
 
     async function askOpenAI(prompt) {
-      const res = await fetch('/api/chatbot', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt })
-      });
+      try {
+        const res = await fetch('/chatbot', {  // rota relativa, backend no mesmo domínio
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt })
+        });
 
-      const data = await res.json();
-      const reply = data.response || "Sorry, I didn't get that.";
-      conversation.push({ role: 'ai', text: reply });
-      addMessage('ai', reply);
-      speak(reply);
-      saveConversation();
+        const data = await res.json();
+        const reply = data.response || "Sorry, I didn't get that.";
+        conversation.push({ role: 'ai', text: reply });
+        addMessage('ai', reply);
+        speak(reply);
+        saveConversation();
+      } catch (error) {
+        addMessage('ai', "Error connecting to AI service.");
+      }
     }
 
     function startListening() {
@@ -76,7 +81,7 @@
       };
 
       recognition.onerror = (event) => {
-        alert('Error in speech recognition: ' + event.error);
+        alert('Speech recognition error: ' + event.error);
       };
     }
 
