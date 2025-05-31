@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Voice Chatbot</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    #chat p { margin: 0.5rem 0; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>🎤 AI Voice Chatbot</h1>
+  <button onclick="startListening()">Start Talking</button>
+  <div id="chat"></div>
+
+  <script>
+    const chatDiv = document.getElementById('chat');
+    let conversation = [];
+
+    function saveConversation() {
+      localStorage.setItem('chat_history', JSON.stringify(conversation));
+    }
+
+    function loadConversation() {
+      const saved = localStorage.getItem('chat_history');
+      if (saved) {
+        conversation = JSON.parse(saved);
+        conversation.forEach(({ role, text }) => addMessage(role, text));
+      }
+    }
+
+    function addMessage(role, text) {
+      const p = document.createElement('p');
+      p.innerHTML = `<strong>${role === 'user' ? 'You' : 'AI'}:</strong> ${text}`;
+      chatDiv.appendChild(p);
+    }
+
+    function speak(text) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    async function askOpenAI(prompt) {
+      const res = await fetch('/api/chatbot', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await res.json();
+      const reply = data.response || "Sorry, I didn't get that.";
+      conversation.push({ role: 'ai', text: reply });
+      addMessage('ai', reply);
+      speak(reply);
+      saveConversation();
+    }
+
+    function startListening() {
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SpeechRecognition) {
+        alert('Speech Recognition not supported in this browser.');
+        return;
+      }
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.start();
+
+      recognition.onresult = (event) => {
+        const userText = event.results[0][0].transcript;
+        conversation.push({ role: 'user', text: userText });
+        addMessage('user', userText);
+        askOpenAI(userText);
+        saveConversation();
+      };
+
+      recognition.onerror = (event) => {
+        alert('Error in speech recognition: ' + event.error);
+      };
+    }
+
+    loadConversation();
+  </script>
+</body>
+</html>
