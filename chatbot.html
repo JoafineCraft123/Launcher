@@ -2,90 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>AI Voice Chatbot</title>
+  <title>ChatGPT Voice Chatbot</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
-    #chat p { margin: 0.5rem 0; }
-    button { padding: 0.5rem 1rem; font-size: 1rem; margin-bottom: 1rem; }
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 1rem; }
+    #chat { height: 400px; overflow-y: auto; border: 1px solid #ccc; padding: 1rem; margin-bottom: 1rem; }
+    .user { color: blue; }
+    .ai { color: green; }
+    button { padding: 0.5rem 1rem; font-size: 1rem; }
   </style>
 </head>
 <body>
-  <h1>🎤 AI Voice Chatbot</h1>
-  <button onclick="startListening()">Start Talking</button>
+  <h1>ChatGPT Voice Chatbot</h1>
   <div id="chat"></div>
+  <button id="talkBtn">Start Talking</button>
 
   <script>
-    const chatDiv = document.getElementById('chat');
-    let conversation = [];
+    const chat = document.getElementById('chat');
+    const talkBtn = document.getElementById('talkBtn');
 
-    function saveConversation() {
-      localStorage.setItem('chat_history', JSON.stringify(conversation));
-    }
-
-    function loadConversation() {
-      const saved = localStorage.getItem('chat_history');
-      if (saved) {
-        conversation = JSON.parse(saved);
-        conversation.forEach(({ role, text }) => addMessage(role, text));
-      }
-    }
-
-    function addMessage(role, text) {
+    function addMessage(text, sender) {
       const p = document.createElement('p');
-      p.innerHTML = `<strong>${role === 'user' ? 'You' : 'AI'}:</strong> ${text}`;
-      chatDiv.appendChild(p);
-      chatDiv.scrollTop = chatDiv.scrollHeight;
+      p.textContent = (sender === 'user' ? 'You: ' : 'AI: ') + text;
+      p.className = sender;
+      chat.appendChild(p);
+      chat.scrollTop = chat.scrollHeight;
     }
 
     function speak(text) {
       const utterance = new SpeechSynthesisUtterance(text);
       utterance.lang = 'en-US';
-      window.speechSynthesis.speak(utterance);
+      speechSynthesis.speak(utterance);
     }
 
-    async function askOpenAI(prompt) {
+    async function askAI(prompt) {
+      addMessage(prompt, 'user');
       try {
-        const res = await fetch('/chatbot', {  // rota relativa, backend no mesmo domínio
+        const res = await fetch('/chatbot', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ prompt })
+          body: JSON.stringify({ prompt }),
         });
-
         const data = await res.json();
-        const reply = data.response || "Sorry, I didn't get that.";
-        conversation.push({ role: 'ai', text: reply });
-        addMessage('ai', reply);
-        speak(reply);
-        saveConversation();
-      } catch (error) {
-        addMessage('ai', "Error connecting to AI service.");
+        if (data.response) {
+          addMessage(data.response, 'ai');
+          speak(data.response);
+        } else {
+          addMessage('Sorry, no response from AI.', 'ai');
+        }
+      } catch {
+        addMessage('Error connecting to backend.', 'ai');
       }
     }
 
-    function startListening() {
+    talkBtn.onclick = () => {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
-        alert('Speech Recognition not supported in this browser.');
+        alert('Speech recognition not supported');
         return;
       }
       const recognition = new SpeechRecognition();
       recognition.lang = 'en-US';
       recognition.start();
 
-      recognition.onresult = (event) => {
-        const userText = event.results[0][0].transcript;
-        conversation.push({ role: 'user', text: userText });
-        addMessage('user', userText);
-        askOpenAI(userText);
-        saveConversation();
+      recognition.onresult = (e) => {
+        const text = e.results[0][0].transcript;
+        askAI(text);
       };
 
-      recognition.onerror = (event) => {
-        alert('Speech recognition error: ' + event.error);
+      recognition.onerror = () => {
+        alert('Speech recognition error');
       };
-    }
-
-    loadConversation();
+    };
   </script>
 </body>
 </html>
