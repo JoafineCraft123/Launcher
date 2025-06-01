@@ -306,6 +306,50 @@
     </ul>
   </div>
 
+
+
+  <section class="pages">
+  <h2>Pages</h2>
+  <ul>
+    <li><a href="https://launcher-weld.vercel.app/server.html" target="_blank" rel="noopener noreferrer">Server Info</a></li>
+  </ul>
+
+  <h2>Play with the Team</h2>
+
+  <iframe src="https://eagler.su" id="gameFrame" title="Play Game" style="border:none; width:800px; height:600px;"></iframe>
+
+  <div id="fallback" style="display:none; color:red; font-weight:bold; margin-top: 10px;">
+    Sorry, the game could not be loaded inside this page.<br />
+    Please <a href="https://eagler.su" target="_blank" rel="noopener noreferrer">click here to play in a new tab</a>.
+  </div>
+</section>
+
+<script>
+  const iframe = document.getElementById('gameFrame');
+  const fallback = document.getElementById('fallback');
+
+  iframe.onerror = function() {
+    iframe.style.display = 'none';
+    fallback.style.display = 'block';
+  };
+
+  setTimeout(() => {
+    try {
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!iframeDoc || iframeDoc.body.innerHTML.length === 0) {
+        iframe.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    } catch(e) {
+      iframe.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+  }, 5000);
+</script>
+
+
+  
+
   <!-- Popup -->
   <div class="popup" id="popup">
     <h3>Join UniversoCraft</h3>
@@ -320,6 +364,10 @@
 
     <button onclick="closePopup()">Close</button>
   </div>
+
+
+
+  
 
   <footer class="footer">
     © 2025 DKLauncher Team. All rights reserved.
