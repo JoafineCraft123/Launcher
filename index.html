@@ -100,9 +100,7 @@
       transform: scale(1.05);
     }
 
-    /* ===== Popular Servers Styles ===== */
     .servers-list {
-      /* Reutiliza estilo de .section */
       max-width: 900px;
       margin: 0 auto 40px;
       padding: 25px 30px;
@@ -172,7 +170,6 @@
       cursor: not-allowed;
     }
 
-    /* ===== Popup Styles ===== */
     .popup {
       position: fixed;
       top: 50%;
@@ -228,16 +225,38 @@
       background-color: #1d4ed8;
     }
 
-    /* ===== Footer ===== */
     .footer {
       text-align: center;
       font-size: 14px;
       color: #888;
       margin: 50px 0 25px;
     }
+
+    .pages ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pages ul li {
+      margin-bottom: 10px;
+    }
+
+    .pages ul li a,
+    .pages ul li button {
+      font-size: 18px;
+      color: var(--primary-color);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .pages ul li a:hover,
+    .pages ul li button:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-
 <body>
 
   <header>
@@ -262,7 +281,7 @@
 
   <div class="section">
     <h2>Download</h2>
-    <a class="download-button" href="https://www.mediafire.com/file/1y9h9b43mtjqv6g/DKLauncher.exe/file" target="_blank" rel="noopener noreferrer">
+    <a class="download-button" href="https://www.mediafire.com/file/1y9h9b43mtjqv6g/DKLauncher.exe/file">
       ⬇️ Download DKLauncher Installer
     </a>
   </div>
@@ -284,11 +303,11 @@
     <ul>
       <li>
         <span><strong>🥇 UniversoCraft</strong> - mc.universocraft.com </span>
-        <button onclick="showPopup()"></button>
+        <button onclick="showPopup()">Info</button>
       </li>
       <li>
         <span><strong>🥈 Mineland</strong> - mineland.net</span>
-        <button disabled></button>
+        <button disabled>Indisponível</button>
       </li>
     </ul>
   </div>
@@ -306,54 +325,18 @@
     </ul>
   </div>
 
+  <div class="section pages">
+    <h2>Pages</h2>
+    <ul>
+      <li><a href="https://launcher-weld.vercel.app/server.html">📄 Server Info</a></li>
+    </ul>
 
-
-  
-<section class="pages">
-  <h2>Pages</h2>
-  <ul>
-    <li><a href="https://launcher-weld.vercel.app/server.html" target="_blank" rel="noopener noreferrer">Server Info</a></li>
-  </ul>
-
-  <h2>Play with the Team</h2>
-
-  <iframe src="https://launcher-weld.vercel.app/play.html" id="gameFrame" title="Play Game" style="border:none; width:800px; height:600px;"></iframe>
-
-  <div id="fallback" style="display:none; color:red; font-weight:bold; margin-top: 10px;">
-    Sorry, the game could not be loaded inside this page.<br />
-    Please <a href="https://launcher-weld.vercel.app/play.html" target="_blank" rel="noopener noreferrer">click here to play in a new tab</a>.
+    <h2>Play with the Team</h2>
+    <button class="download-button" onclick="window.location.href='https://launcher-weld.vercel.app/play.html'">
+      ▶️ Play with the Team
+    </button>
   </div>
-</section>
 
-<script>
-  const iframe = document.getElementById('gameFrame');
-  const fallback = document.getElementById('fallback');
-
-  iframe.onerror = function() {
-    iframe.style.display = 'none';
-    fallback.style.display = 'block';
-  };
-
-  setTimeout(() => {
-    try {
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-      if (!iframeDoc || iframeDoc.body.innerHTML.length === 0) {
-        iframe.style.display = 'none';
-        fallback.style.display = 'block';
-      }
-    } catch(e) {
-      iframe.style.display = 'none';
-      fallback.style.display = 'block';
-    }
-  }, 5000);
-</script>
-
-
-
-
-  
-
-  <!-- Popup -->
   <div class="popup" id="popup">
     <h3>Join UniversoCraft</h3>
     <p>Launch Minecraft and connect to:</p>
@@ -368,26 +351,20 @@
     <button onclick="closePopup()">Close</button>
   </div>
 
-
-
-  
-
   <footer class="footer">
     © 2025 DKLauncher Team. All rights reserved.
   </footer>
 
   <script>
-    // Atualiza data e hora no header
     function updateDateTime() {
       const now = new Date();
       const date = now.toLocaleDateString('en-GB');
       const time = now.toLocaleTimeString('en-GB');
-      document.getElementById('datetime').textContent = ${date} ${time};
+      document.getElementById('datetime').textContent = date + ' ' + time;
     }
     setInterval(updateDateTime, 1000);
     updateDateTime();
 
-    // Popup control
     function showPopup() {
       document.getElementById('popup').style.display = 'block';
     }
